@@ -1,15 +1,20 @@
+import os
 import requests
+
+from dotenv import load_dotenv
 
 from telegram       import Update
 from telegram.ext   import Application, MessageHandler, CallbackContext
 
 from function       import get_signal
 
+load_dotenv()
+
 # Your bot token from @BotFather
-bot_token = '7640093061:AAFaD-ybDlRnytPYHGjazRcqwcvbIqtizMA'
+bot_token       = os.getenv("TelegramBotToken")
 
 # Your Flask API endpoint to save messages
-api_endpoint = 'http://100.64.100.6:5000/post_signal'
+api_endpoint    = os.getenv("EndpointAPI") + '/post_signal'
 
 # Function to handle and print new messages
 async def message_handler(update: Update, context: CallbackContext):

@@ -3,3 +3,4 @@ instance/
 post_old_signal.py
 test_api.py
 __pycache__
+.env
